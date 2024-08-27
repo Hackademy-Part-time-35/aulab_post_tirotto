@@ -17,7 +17,6 @@
             Dropdown
           </a>
           <ul class="dropdown-menu">
-        
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
@@ -25,9 +24,53 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page"href="{{route('homepage'}}">Home</a>
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
+      @auth 
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('article.create')}}">Inserisci un articolo</a>
+       </li>
+
+     <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toogle" href="#" role="button" data-bs-toogle="dropdown" aria-expanded="false">
+      Ciao {{ Auth::user()->name}}
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.queryselector('#form-logout').submit();">Logout</a>
+        </li>
+        <form action="{{route('logout')}}" method="POST" id="form-logout" class="d-none">
+          @csrf 
+        </form>
+
+      </ul>
+
+     </li>
+     @endauth
+     @guest 
+       
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toogle" href="#" role="button" data-bs-toogle="dropdown" aria-expanded="false">
+          Benvenuto Ospite
+        </a>
+        
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{{route('register')}}">Registrati</a></li>
+          <li><a class="dropdown-item" href="{{route('login')}}">Accedi</a></li>
+
+        </ul>
+       </li>
+       @endguest
+
+
+
+
+
+
+
+
+
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>

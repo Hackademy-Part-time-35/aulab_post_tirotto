@@ -31,11 +31,7 @@
         <!--Grid row-->
         <div class="row d-flex justify-content-center">
           <!--Grid column-->
-          <div class="col-auto">
-            <p class="pt-2">
-              <strong>Sign up for our newsletter</strong>
-            </p>
-          </div>
+    
           <!--Grid column-->
 
           <!--Grid column-->
