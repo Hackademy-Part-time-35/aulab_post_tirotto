@@ -9,7 +9,6 @@ use Illuminate\Routing\Controllers\HasMiddleware;
 use App\Mail\CareerRequestMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Auth;
 
 class PublicController extends Controller implements HasMiddleware
 {
@@ -56,49 +55,19 @@ class PublicController extends Controller implements HasMiddleware
                    $user->is_revisor = NULL;
                    break;
                 case 'writer':
-                    £user->is_writer = NULL;
+                    $user->is_writer = NULL;
                     break;
         }
 
         $user->update();
         return redirect(route('homepage'))->with('message', 'Mail inviata con successo!');
          
-        
+         }
 
-
-    }
-
-    class CareerRequestMail extends Mailable
-
-      {
-
- 
-        use Queuelable, SerializesModels;
-
-        public $info;
-
-        public function__construct($info){
-
-            $this->info= $info;
         }
-        public function envelope(): Envelope{
-
-            return view Envelope(
-                subject: 'Nuova richiesta di lavoro ricevuta',
-            );
-
-        }     
-
-        public function content(): Content{
-
-            return new Content(
-                view: 'mail.career-request-mail',
-            );
-        }
-
-    }
+    
 
 
 
 
-}
+

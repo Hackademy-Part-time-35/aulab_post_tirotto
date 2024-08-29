@@ -10,5 +10,34 @@
     <p>Ricevuta da {{$info['email']}}</p>
     <h4>Messaggio:</h4>
     <p>{{$info['message']}}</p>
+
+
+    class CareerRequestMail extends Mailable
+
+      
+
+ 
+        use Queuelable, SerializesModels;
+
+        public $info;
+
+        public function__construct($info){
+
+            $this->info= $info;
+        }
+        public function envelope(): Envelope{
+
+            return view Envelope(
+                subject: 'Nuova richiesta di lavoro ricevuta',
+            );
+
+        }     
+
+        public function content(): Content{
+
+            return new Content(
+                view: 'mail.career-request-mail',
+            );
+
 </body>
 </html>

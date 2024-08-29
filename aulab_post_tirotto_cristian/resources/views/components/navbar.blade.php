@@ -14,7 +14,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{}route('careers'}"->Lavora con noi</a>
+          <a class="nav-link active" aria-current="page" href="{{route('careers')}}">Lavora con noi</a>
         </li>
         
         <li class="nav-item dropdown">
@@ -22,6 +22,9 @@
             Dropdown
           </a>
           <ul class="dropdown-menu">
+            @if (Auth::user()->is_admin)
+              <li><a class="dropdown-item" href="{{route('admin.dashbord'}}">Dashbord Admin</a></li>
+              @endif 
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
