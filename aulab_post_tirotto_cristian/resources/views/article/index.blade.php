@@ -9,13 +9,6 @@
             </div>
             @endif 
 
-            @if (session('alert'))
-            <div class="alert alert-danger">
-                {{session('alert')}}
-            @endif    
-
-            </div>
-
             <h1 class="display-1">The Aulab Post</h1>
 
             </div>
@@ -34,7 +27,7 @@
                     <h5 class="card-title">{{ $article->title }}</h5>
                     <p class="subtitle">{{$article->subtitle}}</p>
                     <p class="small text-muted">Categoria:
-                        <a href="route{{'article.byCategory', $article->category}}" class="text-capitalize text-muted">{{ $article->category-name}}</a>
+                        <a href="{route('article.byCategory', $article->category)}}" class="text-capitalize text-muted">{{ $article->category-name}}</a>
                     </p>
                   </div>   
 

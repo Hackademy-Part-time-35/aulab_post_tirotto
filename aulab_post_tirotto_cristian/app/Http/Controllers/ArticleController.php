@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\Middelware;
-use Illuminate\Rouring\Controllers\HasMiddelware;
+use Illuminate\Routing\Controllers\HasMiddelware;
+use App\Models\Category;
+use App\Models\user;
 
 class ArticleController extends Controller implements HasMiddelware
 {
@@ -13,7 +15,7 @@ class ArticleController extends Controller implements HasMiddelware
     public static function middelware(){
 
         return[
-            new middleware('auth', except: ['index', 'show']),
+            new middleware('auth', except: ['index', 'show',' byCategory','byUser']),
         ];
     }
     /**
@@ -21,7 +23,8 @@ class ArticleController extends Controller implements HasMiddelware
      */
     public function index()
     {
-        //
+        $articles=Article::orderBy('created_at', 'desc')->get();
+        return view('article.index', compact('articles'));
     }
 
     /**
@@ -62,12 +65,17 @@ class ArticleController extends Controller implements HasMiddelware
         
     }
 
+    public function byCategory(Category $category){
+        $articles = $category->articles()->orderBy('created_at', 'desc')->get();
+        return view('article.by-category', compact('category', 'articles'));
+    }
+
     /**
      * Display the specified resource.
      */
     public function show(Article $article)
     {
-        //
+        return view§('article.show', compact('article'));
     }
 
     /**
@@ -96,4 +104,8 @@ class ArticleController extends Controller implements HasMiddelware
     {
         //
     }
+    public function byUser(User $User){
+    $articles = $User->articles()->orderBy('created_at', 'desc')->get();
+    return view('article.by-user', compact('user', 'articles'));
+}
 }

@@ -13,6 +13,7 @@
 <body>
     <x-navbar/>
 
+   
     <div class="min-vh-180">
         {{ $slot }}
 
