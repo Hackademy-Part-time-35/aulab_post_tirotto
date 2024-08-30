@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controllers\Middelware;
-use Illuminate\Routing\Controllers\HasMiddelware;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
 use App\Models\Category;
 use App\Models\user;
 
-class ArticleController extends Controller implements HasMiddelware
+class ArticleController extends Controller implements HasMiddleware
 {
 
-    public static function middelware(){
+    public static function middleware(){
 
         return[
-            new middleware('auth', except: ['index', 'show',' byCategory','byUser']),
+            new Middleware('auth', except: ['index', 'show',' byCategory','byUser']),
         ];
     }
     /**

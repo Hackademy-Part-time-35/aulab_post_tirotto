@@ -10,7 +10,7 @@
         <div class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 d-flex flex-column">
-                    <img src="{{ Storage::url($article->image)}}" class="img-fluid" alt="iommagine dell'articolo{{$article->title}}">
+                    <img src="{{ Storage::url($article->image)}}" class="img-fluid" alt="immagine dell'articolo{{$article->title}}">
                   <div class="text-center">
                     <h2>{{$article->subtitle}}</h2>
                     <p class="fs-5">Categoria:

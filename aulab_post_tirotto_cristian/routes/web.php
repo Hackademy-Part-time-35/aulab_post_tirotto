@@ -5,6 +5,7 @@ use App\Http\Controllers\ArticleController;
 use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RevisorController;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create');
@@ -20,4 +21,10 @@ Route::middleware('admin')->group(function(){
     Route::patch('/admin/{user}/set-admin', [AdminController::class, 'setAdmin'])->name('admin.setAdmin');
     Route::patch('/admin/{user}/set-revisor', [AdminController::class, 'setRevisor'])->name('admin.setRevisor');
     Route::patch('/admin{user}/set-writer', [AdminController::class, 'setWriter'])->name('admin.setWriter');
+    Route::get('/revisor/dashbord', [RevisorController::class, 'dashboard'])->name('revisor.dashboard');
+    Route::middleware('revisor')->group(function(){
+        Route::post('/revisor/{article}/accept', [RevisorControllert::class, 'acceptArticle'])->name('revisor.acceptArticle');
+        Route::post('/revisor/{article}/reject', [RevisorController::class, 'rejectASrticle'])->name('revisor.rejectArticle');
+        Route::post('/revisor/{article}/undo', [RevisorController::class, 'undoArticle'])->name('revisor.undoArticle');
+    });
 });

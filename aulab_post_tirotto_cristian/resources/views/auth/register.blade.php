@@ -30,7 +30,7 @@
                  </div>
 
                  <div class="mb-3">
-                    <label for="password" class="form-label" id="password"></label>
+                    <label for="password" class="form-label" id="password">password</label>
                     <input type="password" class="form-control" id="password" name="password">
                     @error ('password')
                       <span class="text-danger">{{$message}}</span>
@@ -38,8 +38,8 @@
                   </div>
 
                   <div class="mb-3">
-                    <label for="password_confirmation" class="form-label" id="password_comfirmation"></label>
-                    <input type="password_confirmation" class="form-control" id="password_confirmation">
+                    <label for="password_confirmation" class="form-label" id="password_comfirmation">conferma password</label>
+                    <input type="password" class="form-control"name="password_confirmation" id="password_confirmation">
                     @error ('password_confirmation')
                      <span class="text-danger">{{$message}}</span>
                      @enderror 
