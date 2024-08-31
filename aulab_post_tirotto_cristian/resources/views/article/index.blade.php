@@ -9,7 +9,7 @@
             </div>
             @endif 
 
-            <h1 class="display-1">The Aulab Post</h1>
+            <h1 class="display-1">Tutti gli articoli</h1>
 
             </div>
 

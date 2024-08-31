@@ -19,8 +19,12 @@
             @if (is_null($article->is_accepted))
             <a href="{{route('article.show', $article)}}" class="btn btn-secondary">Leggi l'articolo</a>
             @else
-              <a href="#" class="btn btn-secondary">Riporta in revisione</a>
-              @endif 
+
+            <form action="{{route('revisor.undoArticle', $article)}}" method="POST">
+              @csrf 
+              <button type="submit" class="btn btn-secondary">Riporta in revisione</button>
+            </form>
+         @endif 
         </td>
       </tr>
       @endforeach

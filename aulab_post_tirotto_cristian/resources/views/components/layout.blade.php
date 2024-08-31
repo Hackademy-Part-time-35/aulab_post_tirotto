@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f58e120107.js" crossorigin="anonymous"></script>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -12,6 +13,7 @@
 </head>
 <body>
     <x-navbar/>
+ 
 
    
     <div class="min-vh-180">
@@ -21,5 +23,10 @@
     
 
 
+
+
+
+    
+    <x-footer/>
 </body>
 </html>

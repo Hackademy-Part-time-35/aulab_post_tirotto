@@ -8,6 +8,7 @@ use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use App\Models\Category;
 use App\Models\user;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller implements HasMiddleware
 {
@@ -33,7 +34,7 @@ class ArticleController extends Controller implements HasMiddleware
     
     public function create()
     {
-        return view('article,create');
+        return view('article.create');
     }
 
     /**
