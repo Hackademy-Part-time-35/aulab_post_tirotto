@@ -7,16 +7,17 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use App\Models\Category;
-use App\Models\user;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+
 
 class ArticleController extends Controller implements HasMiddleware
 {
 
     public static function middleware(){
 
-        return[
-            new Middleware('auth', except: ['index', 'show',' byCategory','byUser']),
+        return[new Middleware('auth', except: ['index', 'show',' byCategory','byUser', 'articleSearch']),
+             
         ];
     }
     /**
@@ -24,7 +25,7 @@ class ArticleController extends Controller implements HasMiddleware
      */
     public function index()
     {
-        $articles=Article::orderBy('created_at', 'desc')->get();
+        $articles=Article::where('is_accepted', true)->orderBy('created_at', 'desc')->get();
         return view('article.index', compact('articles'));
     }
 
@@ -67,7 +68,7 @@ class ArticleController extends Controller implements HasMiddleware
     }
 
     public function byCategory(Category $category){
-        $articles = $category->articles()->orderBy('created_at', 'desc')->get();
+        $articles = $category->articles()->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
         return view('article.by-category', compact('category', 'articles'));
     }
 
@@ -76,7 +77,7 @@ class ArticleController extends Controller implements HasMiddleware
      */
     public function show(Article $article)
     {
-        return view§('article.show', compact('article'));
+        return view('article.show', compact('article'));
     }
 
     /**
@@ -106,7 +107,7 @@ class ArticleController extends Controller implements HasMiddleware
         //
     }
     public function byUser(User $User){
-    $articles = $User->articles()->orderBy('created_at', 'desc')->get();
+    $articles = $User->articles()->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
     return view('article.by-user', compact('user', 'articles'));
 }
 }

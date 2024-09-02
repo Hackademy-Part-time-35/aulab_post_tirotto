@@ -11,6 +11,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-8">
                         <form action="{{route('article.store')}}" method="POST"class="card p-5 shadow" enctype="multipart/form-data">
+                            @csrf
                             <div class="mb-3">
                                 <label for="title" class="form-label">Titolo</label>
                                 <input type="text" name="title" class="form-control" id="title" value="{{old('title')}}">

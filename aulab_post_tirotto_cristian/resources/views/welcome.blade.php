@@ -2,31 +2,19 @@
     <div class="container-fluid p-5 bg-secondary-subtle text-center">
         <div class="row justify-content-center">
             <div class="col-12">
-
-            @if (session('message'))
-            <div class="alert alert-success"> 
-
-            </div>
-            @endif 
-
-            @if (session('message'))
-            <div class="alert alert-success">
-                {{session('message')}}
-           </div>
-           @endif
-
-            @if (session('alert'))
+              <h1 class="display-1">The Aulab Post</h1>
+              @if(session('message'))
+                <div class="alert alert-success">
+                    {{session('message')}}
+                </div>
+                @endif 
+                 
+            @if(session('alert'))
             <div class="alert alert-danger">
                 {{session('alert')}}
             @endif    
 
-            </div>
-
-            <h1 class="display-1">The Aulab Post</h1>
-
-            </div>
-
-        </div>
+             </div>
 
     </div>
 
@@ -35,12 +23,12 @@
             @foreach ($articles as $article)
              <div class="col-12 col-md-3">
                 <div class="card" style="with: 18rem;">
-                    <img src="{{storage::url($article->image)}}"class="card-img-top"alt="Immagine dell'articolo:{{$article->title}}">
+                    <img src="{{Storage::url($article->image)}}"class="card-img-top"alt="Immagine dell'articolo:{{$article->title}}">
                  <div class="card-body">
                     <h5 class="card-title">{{ $article->title }}</h5>
                     <p class="subtitle">{{$article->subtitle}}</p>
                     <p class="small text-muted">Categoria:
-                        <a href="route{{'article.byCategory', $article->category}}" class="text-capitalize text-muted">{{ $article->category-name}}</a>
+                        <a href="{{route('article.byCategory', $article->category)}}" class="text-capitalize text-muted">{{ $article->category->name}}</a>
                     </p>
                   </div>   
 

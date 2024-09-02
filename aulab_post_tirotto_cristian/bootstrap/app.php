@@ -14,6 +14,9 @@ return Application::configure(basePath: dirname(__DIR__))
         
         $middleware->alias([
             'admin' => App\Http\Middleware\UserIsAdmin::class,
+            'writer'=> App\Http\Middleware\UserIsWriter::class,
+            'revisor' => App\Http\MiddlewareUserIsRevisor::class,
+        
         ]);
 
         
@@ -21,11 +24,3 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
-
-    withMiddleware(function (Middleware $middleware){
-        $middleware->alias([
-            'revisor' => App\Http\MiddlewareUserIsRevisor::class,
-        ]);
-
-        
-    });

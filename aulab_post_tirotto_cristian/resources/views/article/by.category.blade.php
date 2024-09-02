@@ -17,7 +17,7 @@
                     <h5 class="card-title">{{ $article->title}}</h5>
                     <p>Redatto il {{$article->created_at->format('d/m/Y')}} <br>
                     da {{$article->user->name}}</p>
-                    <a href="{{route()'article.shpow', $article}}" class="btn btn-outline-secondary">Leggi</a>
+                    <a href="{{route('article.shpw', $article)}}" class="btn btn-outline-secondary">Leggi</a>
                </div>
             </div>
          </div>

@@ -22,12 +22,12 @@
             @foreach ($articles as $article)
              <div class="col-12 col-md-3">
                 <div class="card" style="with: 18rem;">
-                    <img src="{{storage::url($article->image)}}"class="card-img-top"alt="Immagine dell'articolo:{{$article->title}}">
+                    <img src="{{Storage::url($article->image)}}"class="card-img-top"alt="Immagine dell'articolo:{{$article->title}}">
                  <div class="card-body">
                     <h5 class="card-title">{{ $article->title }}</h5>
                     <p class="subtitle">{{$article->subtitle}}</p>
                     <p class="small text-muted">Categoria:
-                        <a href="{route('article.byCategory', $article->category)}}" class="text-capitalize text-muted">{{ $article->category-name}}</a>
+                        <a href="{{route('article.byCategory', $article->category)}}" class="text-capitalize text-muted">{{ $article->category->name}}</a>
                     </p>
                   </div>   
 
