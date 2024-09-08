@@ -34,3 +34,4 @@ Route::middleware('admin')->group(function(){
     
         });
 
+Route::get('/article/search', [ArticleController::class, 'articleSearch'])->name('article.search');

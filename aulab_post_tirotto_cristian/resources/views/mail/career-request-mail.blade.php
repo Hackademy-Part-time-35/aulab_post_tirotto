@@ -37,7 +37,7 @@
 
             return new Content(
                 view: 'mail.career-request-mail',
-             } );
+              )};
 
 </body>
 </html>

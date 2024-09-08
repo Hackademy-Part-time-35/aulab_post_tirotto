@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
-use App\Mail\CareerRequestMail;
+use App\Mail\Career\RequestMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
