@@ -31,14 +31,14 @@
       <li>  <a class="nav-link" href="{{route('article.create')}}">Inserisci un articolo</a></li>
        </li></ul>
       @if (Auth::user()->is_admin)
-              <li><a class="dropdown-item" href="{{route('admin.dashbord')}}">Dashbord Admin</a></li>
+              <li><a class="dropdown-item" href="{{route('admin.dashboard')}}">Dashboard Admin</a></li>
               @endif 
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="{{route('article.index')}}">Tutti gli articoli</a>
       </li>
 
       @if (Auth::user()->is_revisor)
-      <li><a class="dropdown-item" href="{{route('revisor.dashboardf')}}">Dashboard Revisro</a></li>
+      <li><a class="dropdown-item" href="{{route('revisor.dashboard')}}">Dashboard Revisor</a></li>
       @endif 
 
       
@@ -86,7 +86,7 @@
 
 
 
-      <form action="{{route('article.serach'}}" method="GET"class="d-flex" role="search">
+      <form action="{{route('article.search')}}" method="GET"class="d-flex" role="search">
         <input class="form-control me-2" type="search" name="query" placeholder="Cerca tra gli articoli..." aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Cerca</button>
       </form>

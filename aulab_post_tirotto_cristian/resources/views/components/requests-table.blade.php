@@ -7,7 +7,11 @@
             <th scope="col">Azioni</th>
         </tr>
     </thead>
-</table>
+
+
+
+
+    
 
 <tbody>
     @foreach ($roleRequest as $user)
@@ -19,7 +23,7 @@
             @switch($role)
 
             @case('amministratore')
-            <form action="{{route('admin.setAdmin', $user}}" method="POST">
+            <form action="{{route('admin.setAdmin', $user)}}" method="POST">
                 @csrf 
                 @method('PATCH')
                 <button type="submit" class="btn btn-secondary">Attiva{{role}}</button>
@@ -27,7 +31,7 @@
             @break
 
             @case('revisore')
-            <form action="route('admin.setRevisor',$user" method="POST">
+            <form action="{{route('admin.setRevisor',$user)}}" method="POST">
                 @csrf 
                 @method('PATCH')
                 <button type="submit" class="btn btn-secondary">Attiva {{role}}</button>
@@ -35,7 +39,7 @@
             @break
 
             @case('redattore')
-            <form action="{{route('admin.setWriter', $user}}" method="POST">
+            <form action="{{route('admin.setWriter', $user)}}" method="POST">
                 @csrf 
                 @method 
                 <button type="submit" class="btn btn-secondary">Attiva {{role}}</button>

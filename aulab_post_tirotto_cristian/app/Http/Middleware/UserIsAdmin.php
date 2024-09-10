@@ -5,8 +5,9 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
-class UserAdmin
+class UserIsAdmin
 {
     /**
      * Handle an incoming request.
@@ -19,8 +20,9 @@ class UserAdmin
         if(Auth::user() && Auth::user()->is_admin){
             return $next($request);
         }
+    
+return redirect(route('homepage'))->with('alert', 'Non sei autorizzato');
 
-
-        return $next($request);
+       
     }
 }

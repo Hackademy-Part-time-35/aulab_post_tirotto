@@ -34,7 +34,7 @@
         <div class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <h2>Articlo respinti</h2>
+                    <h2>Articoli respinti</h2>
                     <x-article-table :articles="$rejectedArticles"/>
                 </div>
               </div>

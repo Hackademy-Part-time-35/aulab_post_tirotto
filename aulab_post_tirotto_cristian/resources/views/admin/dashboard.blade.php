@@ -13,11 +13,11 @@
         </div>
         @endif
 
-        <div class="conatiner my-5">
+        <div class="container my-5">
           <div class="row justify-content-center">
             <div class="col-12">
                 <h2>Richieste per il ruolo di amministratore</h2>
-                <x-request-table :roleRequest="$adminRequests" role="amministratore"/>
+                <x-requests-table :roleRequest="$adminRequests" role="amministratore"/>
                </div>
             </div>
         </div>
@@ -44,3 +44,4 @@
                   </div>
                </div>
             </div>
+</x-layout>
