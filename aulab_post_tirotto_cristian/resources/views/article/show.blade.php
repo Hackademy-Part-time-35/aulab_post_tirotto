@@ -59,7 +59,7 @@
                 @csrf 
                 <button type="submit" class="btn btn-success">Accetta l'articolo</button>
          </form>
-         <form action="{{route('revisor.rejectArticle', $article}}" method="POST">
+         <form action="{{route('revisor.rejectArticle', $article)}}" method="POST">
             @csrf 
             <button tyoe="submit" class="btn btn-danger">Rifiuta l'articolo</button>
          </form>

@@ -11,7 +11,11 @@ use Laravel\Scout\Searchable;
 
 class Article extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
+
+    
+      
+    
 
     protected $fillable =[
         'title', 'subtitle', 'body', 'image', 'user_id', 'category_id', 'is_accepted'
