@@ -33,6 +33,26 @@
                                  @enderror
                                </div>
 
+                               //tags 
+
+
+                               <div class="mb-3">
+                                <label for="tags" class="form-label">Tags</label>
+                                <input type="text" name="tags" class="form-control" id="tags" value="{{old('tags')}}">
+                                 <span class="small text-muted fst-italic">Dividi ogni tag con una virgola</span>
+                                 @error('tags')
+                                 <span class="text-danger">{{$message}}</span>
+                                 @enderror
+
+                                 <p class="small text-muted my-0">
+                                    @foreach ($article->tags as $tag)
+                                    #{{ $tag->name }}
+                                    @endforeach
+                                 </p>
+
+
+                               </div>
+
                                  <div class="mb-3">
                                     <label for="category" class="form-label">Categoria</label>
                                     <select name="category" id="category" class="form-control">

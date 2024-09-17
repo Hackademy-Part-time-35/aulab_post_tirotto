@@ -15,6 +15,24 @@
                     <img src="{{ Storage::url($article->image)}}" class="card-img-top" alt="Immagine dell'articolo: {{$article->title}}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $article->title}}</h5>
+
+                    @if ($article->category)
+                    <p class="small text-muted">Categoria,
+                        <a href="{{route('article.byCategory')}}" class="text-capitalize text-muted">{{ $article->category->name}}</a>
+                    </p>
+                    
+                    @else
+                    <p class="smaLL text-muted">Nessuna categoria</p>
+                    @endif
+
+
+                    <p class="small text-muted my-0">
+                        @foreach ($article->tags as $tag)
+                        #{{ $tag->name}}
+                        @endforeach
+                    </p>
+
+                    
                     <p>Redatto il {{$article->created_at->format('d/m/Y')}} <br>
                     da {{$article->user->name}}</p>
                     <a href="{{route('article.shpw', $article)}}" class="btn btn-outline-secondary">Leggi</a>

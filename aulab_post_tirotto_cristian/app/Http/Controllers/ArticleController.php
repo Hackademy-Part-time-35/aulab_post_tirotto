@@ -9,6 +9,7 @@ use Illuminate\Routing\Controllers\HasMiddleware;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Tag;
 
 
 class ArticleController extends Controller implements HasMiddleware
@@ -50,6 +51,7 @@ class ArticleController extends Controller implements HasMiddleware
             'body'=>'required|min:10',
             'image'=> 'required|image',
             'category'=>'required',
+            'tags'=> 'required'
 
         ]);
 
@@ -63,6 +65,18 @@ class ArticleController extends Controller implements HasMiddleware
 
             
          ]);
+
+         $tags = explode(',',$request->tags);
+
+         foreach($tags as $i => $tag){
+            $tags[$i] = trim($tag);
+         }
+         foreach($tags as $tag){
+            $newtag = Tag::updateOrCreate([
+                'name' => atrtolower($tag)
+            ]);
+            $article->tags()->attach($newTag);
+         }
 
              return redirect(route('homepage'))->with('message', 'Articolo creato con successo');
         
