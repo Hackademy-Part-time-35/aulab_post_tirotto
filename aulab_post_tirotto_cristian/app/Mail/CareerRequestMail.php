@@ -13,12 +13,14 @@ class CareerRequestMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $info;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($info)
     {
-        //
+        $this->info = $info;
     }
 
     /**
@@ -27,7 +29,7 @@ class CareerRequestMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Career Request Mail',
+            subject: 'Nuova richiesta di lavoro ricevuta',
         );
     }
 
@@ -37,7 +39,7 @@ class CareerRequestMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'mail.career-request-mail',
         );
     }
 

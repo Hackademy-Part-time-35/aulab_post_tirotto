@@ -65,7 +65,7 @@ class AdminController extends Controller
             'name' => strtolower($request->name),
 
         ]);
-        return redirect()->back()->withy('message', 'Categoria aggiornata corretttamente');
+        return redirect()->back()->with('message', 'Categoria aggiornata corretttamente');
     }
     public function deleteCategory( Category $category){
         $category->delete();

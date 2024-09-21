@@ -47,9 +47,14 @@
 
             <div class="container my-5">
                 <div class="row justify-content-center">
-                    <div class="col-12">
+                    <div class="d-flexjustify-content-between">
                         <h2>Tutte le categorie</h2>
-                        <x-metaInfos="$categories" metaType="categorie"/>
+                        <form action="{{route('admin.storeCategory')}}" method="POST" class="w-50 d-flex m-3">
+                            @csrf 
+                            <input type="text" name="name" class="form-control me-2" palceholder="Inserisci una nuova categoria">
+                            <button type="submit" class="btn btn-outline-secondary">Inserisci</button>
+                        </form>
+                        <x-metaInfo-table :metaInfos="$categories" metaType="categorie"/>
 
                     </div>
 
@@ -77,7 +82,8 @@
                     <input type="text" name="name" class="form-control me-2" placeholder="Inserisci una nuova categoria">
                     <button type="submit" class="btn btn-outline-secondary">Inserisci</button>
                 </form>
+                <x-metainfo-table :metaInfos="$categories" metaType="categorie"/>
 
             </div>
-            <x-metainfo-table :metaInfos="$categories" metaType="categorie"/>
+            
 </x-layout>

@@ -16,7 +16,7 @@
                     @if ($article->category)
                     <p class="fs-5">Categoria:
                        
-                        <a href="{{route('article.byCategory', $article->category)}}" class="text-capitalize fw-bold  text-muted">{{$article->category->name}}</a>
+                        <a href="{{route('article.byCategory', $article->category)}}" class="text-capitalize text-muted">{{$article->category->name}}</a>
                      </p>
                      @else 
                      <p class="fs-5">Nessuna categoria</p>

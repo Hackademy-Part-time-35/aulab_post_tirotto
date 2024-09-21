@@ -31,6 +31,7 @@ class Article extends Model
          }
 
          use HasFactory, Searchable;
+         
          public function toSearchableArray(){
             return [
                'id' => $this->id,

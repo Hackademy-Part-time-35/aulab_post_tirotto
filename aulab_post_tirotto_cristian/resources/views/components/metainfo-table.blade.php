@@ -20,62 +20,51 @@
         <td>{{count($metaInfo->articles)}}</td>
         @if ($metaType == 'tags')
 
-        @else
+      
+
+       
+        <td>
+            <form action="{{route('admin.editTag', ['tag' => $metaInfo])}}" method="POST">
+                @csrf 
+                @method('PUT')
+                <input type="text" value="{{$metaInfo->name}}" name="name"placeholder="Nuovo nome tag" class="form-control w-50 d-inline">
+                <button type="submit" class="btn btn-secondary">Modifica</button> 
+            </form>
+        </td>
+        <td>
+            <form action="{{route('admin.deleteTag', ['tag' => $metaInfo])}}" method="POST">
+                @csrf 
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Elimina</button>
+            </form>
+        </td>
+
+        @else 
         <td>
             <form action="{{route('admin.editCategory', ['category' => $metaInfo])}}" method="POST">
                 @csrf 
                 @method('PUT')
-                <input type="text" VALUE="{{$metaInfo->name}}" name="name"placeholder="Nuovo nome categoria" class="form-control w-50 d-inline">
-                <button type="submit" class="btn btn-secondary">Aggiorna</button> 
+                <input type="text" value="{{$metaInfo->name}}" name="name" placeholder="Nuovo nome categoria" class="form-control w-50 d-inline">
+                <button typr="submit" class="btn btn-secondary">Aggiorna</button>
             </form>
         </td>
+
         <td>
-            <form action="">
+            <form action="{{route('admin.delteCategory', ['category' => $metaInfo])}}" method="POST">
                 @csrf 
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Elimina</button>
             </form>
         </td>
 
+    @endif
 
 
-        <td>
-            <form action="{{route('admin.editTag', ['tag' => $metaInfo)}}" method="POST">
-                @csrf 
-                @method('PUT')
-                <input type="text" VALUE="{{$metaInfo->name}}"name="name" placeholder="Nuovo nome tag" class="form-control w-50 d-inline">
-                <button type="submit" class=" btn btn-seconadry">Modifica</button>
-            </form>
-        </td>
 
 
-        <td>
-            <form action="">
-                @csrf
-                @method('PUT')
-                <input type="text" name="name" placeholder="Nuovo nome tag" class="form-control w-50 d-inline">
-                <button type="submit" class="btn btn-seconadry">Aggiorna</button>
-            </form>
-
-        </td>
 
 
-        <td>
-            <form action="{{route('admin.deleteTag', ['tag'=>$metaInfo])}}" method="POST">
-                @csrf 
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">Elimina</button>
-            </form>
-        </td>
-
-
-        <td>
-            <form action="{{route('admin.deleteCtaegory', ['category' => $metaInfo])}}" method="POST">
-                @csrf 
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">Elimina</button>
-            </form>
-        </td>
+       
         @endif
     </tr>
     @endforeach
