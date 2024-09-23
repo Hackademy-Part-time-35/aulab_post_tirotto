@@ -17,7 +17,7 @@
           <div class="row justify-content-center">
             <div class="col-12">
                 <h2>Richieste per il ruolo di amministratore</h2>
-                <x-requests-table :roleRequest="$adminRequests" role="amministratore"/>
+                <x-requests-table :roleRequests="$adminRequests" role="amministratore"/>
                </div>
             </div>
         </div>
@@ -40,18 +40,18 @@
             <div class="row justify-content-center">
                 <div class="col-12">
                     <h2>Richieste per il ruolo di redattore</h2>
-                    <x-requests-table :roleRequest="$writerRequests" role="redattore"/>
+                    <x-requests-table :roleRequests="$writerRequests" role="redattore"/>
                   </div>
                </div>
             </div>
 
             <div class="container my-5">
                 <div class="row justify-content-center">
-                    <div class="d-flexjustify-content-between">
+                    <div class="d-flex justify-content-between">
                         <h2>Tutte le categorie</h2>
-                        <form action="{{route('admin.storeCategory')}}" method="POST" class="w-50 d-flex m-3">
+                        <form action="{{route('admin.storeCategory')}}" method= "POST" class="w-50 d-flex m-3">
                             @csrf 
-                            <input type="text" name="name" class="form-control me-2" palceholder="Inserisci una nuova categoria">
+                            <input type="text" name="name" class="form-control me-2" placeholder="Inserisci una nuova categoria">
                             <button type="submit" class="btn btn-outline-secondary">Inserisci</button>
                         </form>
                         <x-metaInfo-table :metaInfos="$categories" metaType="categorie"/>
@@ -67,7 +67,8 @@
                 <div class="row justiofy-content-center">
                     <div class="col-12">
                         <h2>Tutti i tags</h2>
-                        <x-metainfo-table :metaInfos="$tags" metaType="tags"/>
+                       <x-metainfo-table :metaInfos="$tags" metaType="tags"/>
+                     
 
                     </div>
 
@@ -77,7 +78,7 @@
             </div>
             <div class="d-flex justify-content-between">
                 <h2>Tutte le categorie</h2>
-                <form action="{{route('admin.storeCategory'}}" method="POST" class="w-50-flex">
+                <form action="{{route('admin.storeCategory')}}" method="POST" class="w-50-flex">
                     @csrf 
                     <input type="text" name="name" class="form-control me-2" placeholder="Inserisci una nuova categoria">
                     <button type="submit" class="btn btn-outline-secondary">Inserisci</button>

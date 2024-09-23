@@ -14,7 +14,7 @@
     
 
 <tbody>
-    @foreach ($roleRequest as $user)
+    @foreach ($roleRequests as $user)
     <tr>
         <th scope="row">{{$user->id}}</th>
         <td>{{$user->name}}</td>
@@ -26,7 +26,7 @@
             <form action="{{route('admin.setAdmin', $user)}}" method="POST">
                 @csrf 
                 @method('PATCH')
-                <button type="submit" class="btn btn-secondary">Attiva{{role}}</button>
+                <button type="submit" class="btn btn-secondary">Attiva{{$role}}</button>
             </form>
             @break
 
@@ -34,15 +34,15 @@
             <form action="{{route('admin.setRevisor',$user)}}" method="POST">
                 @csrf 
                 @method('PATCH')
-                <button type="submit" class="btn btn-secondary">Attiva {{role}}</button>
+                <button type="submit" class="btn btn-secondary">Attiva {{$role}}</button>
             </form>
             @break
 
             @case('redattore')
             <form action="{{route('admin.setWriter', $user)}}" method="POST">
                 @csrf 
-                @method 
-                <button type="submit" class="btn btn-secondary">Attiva {{role}}</button>
+                @method ('PATCH')
+                <button type="submit" class="btn btn-secondary">Attiva {{$role}}</button>
            </form>
                @break 
                @endswitch 

@@ -6,6 +6,7 @@ use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RevisorController;
+use App\Http\Controllers\WriterController;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create');
@@ -37,6 +38,10 @@ Route::middleware('admin')->group(function(){
         Route::middleware('writer')->group(function(){
             Route::get('article/create', [ArticleController::class, 'create'])->name('article.create');
             Route::post('/article/store', [ArticleController::class, 'store'])->name('article.store');
+            Route::get('/writer/dashboard', [WriterController::class, 'dashboard'])->name('writer.dashboard');
+            Route::get('/article/edit/{article}', [ArticleController::class, 'edit'])->name('article.edit');
+            Route::put('/article/update/{article}', [ArticleController::class, 'update'])->name('article.update');
+            Route::delete('/article/destroy/{article}', [ArticleController::class, 'destroy'])->name('article.destroy');
     
         });
 

@@ -12,11 +12,11 @@
 
     <tbody>
 
-    @foreach (metaInfos as $metaInfo)
+    @foreach ($metaInfos as $metaInfo)
 
     <tr>
         <th scope="row">{{$metaInfo->id}}</th>
-        <td>{{metaInfo->name}}</td>
+        <td>{{$metaInfo->name}}</td>
         <td>{{count($metaInfo->articles)}}</td>
         @if ($metaType == 'tags')
 
@@ -50,7 +50,7 @@
         </td>
 
         <td>
-            <form action="{{route('admin.delteCategory', ['category' => $metaInfo])}}" method="POST">
+            <form action="{{route('admin.deleteCategory', ['category' => $metaInfo])}}" method="POST">
                 @csrf 
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Elimina</button>
@@ -64,8 +64,7 @@
 
 
 
-       
-        @endif
+   
     </tr>
     @endforeach
     </tbody>
