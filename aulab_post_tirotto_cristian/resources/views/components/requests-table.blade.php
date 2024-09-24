@@ -26,7 +26,7 @@
             <form action="{{route('admin.setAdmin', $user)}}" method="POST">
                 @csrf 
                 @method('PATCH')
-                <button type="submit" class="btn btn-secondary">Attiva{{$role}}</button>
+                <button type="submit" class="btn btn-secondary">Attiva {{$role}}</button>
             </form>
             @break
 
@@ -41,7 +41,8 @@
             @case('redattore')
             <form action="{{route('admin.setWriter', $user)}}" method="POST">
                 @csrf 
-                @method ('PATCH')
+                @method('PATCH')
+
                 <button type="submit" class="btn btn-secondary">Attiva {{$role}}</button>
            </form>
                @break 

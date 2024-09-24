@@ -11,24 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('article', function (Blueprint $table) {
-            $table->boolean('is_accepted')->after('user_id')->nullable();
+        Schema::create('tags', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
      */
-   
-  
-
-
-     public function down(): void 
-     {
-        Schema::table('artciles', function (Blueprin $table){
-            $table->dropColumn('is_accepted');
-        });
-     }
-
+    public function down(): void
+    {
+        Schema::dropIfExists('tags');
+    }
 };
-
