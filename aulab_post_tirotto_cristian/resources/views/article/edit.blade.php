@@ -26,7 +26,8 @@
                             <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
-                    <div class="mb-3">
+                
+                     <div class="mb-3">
                         <label>Immagine attuale</label>
                         <img src="{{Storage::url($article->image)}}" alt="{{$article->title}}" class="w-50 d-flex">
                     </div>

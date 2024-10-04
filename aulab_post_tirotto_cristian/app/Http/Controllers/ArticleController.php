@@ -144,6 +144,10 @@ class ArticleController extends Controller implements HasMiddleware
     /**
      * Remove the specified resource from storage.
      */
+
+
+
+     
     public function destroy(Article $article)
     {
         foreach ($article->tags as $tag){
