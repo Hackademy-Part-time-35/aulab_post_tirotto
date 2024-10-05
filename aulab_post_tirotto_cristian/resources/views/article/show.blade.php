@@ -12,7 +12,7 @@
             <div class="col-12 col-md-8 d-flex flex-column">
                 <img src="{{ Storage::url($article->image) }}" class="img-fluid"
                     alt="immagine dell'articolo{{ $article->title }}">
-                <div class="text-center">
+                <div class="text-center mt-2">
                     <h2>{{ $article->subtitle }}</h2>
                     @if ($article->category)
                         <p class="fs-5">Categoria:
@@ -36,25 +36,24 @@
                     </div>
                 </div>
                 <hr>
-                <p>{{ $article->body }}</p>
+                <p class="text-center">{{ $article->body }}</p>
                 @if (Auth::user() && Auth::user()->is_revisor)
                     <div class="container my-5">
                         <div class="row">
                             <div class="col-12 d-flex justify-content-evenly">
                                 <form action="{{ route('revisor.acceptArticle', $article) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-danger">
-                                        <Ri:a>Accetta l'articolo</Ri:a>
-                                    </button>
+                                    <button type="submit" class="btn btn-success">Accetta l'articolo</button>
                                 </form>
-
-                                <form action="{{ route('revisor.rejectArticle', $article) }}" metho="POST">
+                                <form action="{{ route('revisor.rejectArticle', $article) }}" method="POST">
                                     @csrf
-
                                     <button type="submit" class="btn btn-danger">Rifiuta l'articolo</button>
                                 </form>
+                
                             </div>
+                
                         </div>
+                
                     </div>
                 @endif
                 <div class="text-center">
@@ -64,25 +63,6 @@
         </div>
     </div>
 
+
 </x-layout>
 
-<p>{{ $article->body }}</p>
-@if (Auth::user() && Auth::user()->is_revisor)
-    <div class="container my-5">
-        <div class="row">
-            <div class="col-12 d-flex justify-content-evennly">
-                <form action="{{ route('revisor.acceptArticle', $article) }}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn btn-success">Accetta l'articolo</button>
-                </form>
-                <form action="{{ route('revisor.rejectArticle', $article) }}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn btn-danger">Rifiuta l'articolo</button>
-                </form>
-
-            </div>
-
-        </div>
-
-    </div>
-@endif

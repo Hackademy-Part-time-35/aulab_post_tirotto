@@ -1,0 +1,29 @@
+:root{
+    --transition-duration: 200ms;
+}
+
+.background-image{
+    background-image: url(../../public/img/background.jpg);
+}
+
+.max-card-img-height{
+    max-height: 12rem;
+}
+
+.custom-card-size{
+    height: 28rem;
+    width: 18rem;
+}
+
+.fs-md-sm{
+    font-size: .6rem;
+}
+
+.hover-grow{
+    transition: var(--transition-duration);
+}
+
+.hover-grow:hover{
+    transform: scale(1.05);
+    transition: var(--transition-duration);
+}

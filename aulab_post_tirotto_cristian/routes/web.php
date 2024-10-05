@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RevisorController;
 use App\Http\Controllers\WriterController;
+use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');
