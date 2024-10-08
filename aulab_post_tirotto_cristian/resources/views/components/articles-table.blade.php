@@ -1,9 +1,9 @@
 <table class="table table-striped table-hover">
     <thead class="table-dark">
         <tr>
-            <th scop="col">#</th>
+            <th scope="col">#</th>
             <th scope="col">Titolo</th>
-            <th scop="col">Sottotitolo</th>
+            <th scope="col">Sottotitolo</th>
             <th scope="col">Redattore</th>
             <th scope="col">Azioni</th>
         </tr>
@@ -17,12 +17,12 @@
                 <td>{{ $article->user->name }}</td>
                 <td>
                     @if (is_null($article->is_accepted))
-                        <a href="{{ route('article.show', $article) }}" class="btn btn-secondary">Leggi l'articolo</a>
+                        <a href="{{ route('article.show', $article) }}" class="btn btn-primary">Leggi l'articolo</a>
                     @else
                         <form action="{{ route('revisor.undoArticle', $article) }}" method="POST">
                             @csrf
-                           
-                            <input type="submit" value="Riporta in revisione">
+                            
+                            <button class="btn btn-secondary" type="submit" >Riporta in revisione</button>
 
                         </form>
                     @endif
